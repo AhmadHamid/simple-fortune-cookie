@@ -16,7 +16,7 @@ on:
 
 jobs:
   Test:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted]
     container: golang:1.17.0-alpine
     steps:
     - uses: actions/checkout@v2
@@ -25,7 +25,7 @@ jobs:
     - name: Test Frontend
       run: cd frontend && go test
   Build-Push:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted]
     needs: [Test]
     steps:
     - uses: actions/checkout@v2
