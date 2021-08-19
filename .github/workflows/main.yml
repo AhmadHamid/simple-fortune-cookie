@@ -42,13 +42,15 @@ jobs:
       with:
         context: ./frontend
         push: true
-        tags: ahmadhamid/cookie-frontend:${{ env.GITHUB_REF }}
+        tags: ahmadhamid/cookie-frontend
+        # :${{ env.GITHUB_REF }}
     - name: Build and Push Backend
       uses: docker/build-push-action@v2
       with:
         context: ./backend
         push: true
-        tags: ahmadhamid/cookie-backend:${{ env.GITHUB_REF }}
+        tags: ahmadhamid/cookie-backend
+        # :${{ env.GITHUB_REF }}
   Deploy:
     runs-on: [self-hosted]
     needs: [Build-Push]
