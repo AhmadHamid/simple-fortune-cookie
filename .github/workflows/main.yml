@@ -48,7 +48,7 @@ jobs:
       with:
         context: ./backend
         push: true
-        tags: ahmadhamid/cookie-backend:$GITHUB_REF
+        tags: ahmadhamid/cookie-backend:${GITHUB_REF##*/}
   Deploy:
     runs-on: [self-hosted]
     needs: [Build-Push]
