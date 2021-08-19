@@ -46,3 +46,10 @@ jobs:
         context: ./backend
         push: true
         tags: ahmadhamid/cookie-backend:latest
+  Deploy:
+    runs-on: [self-hosted]
+    needs: [Build-Push]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Deploy to Docker-Compose
+      run: docker-compose up
