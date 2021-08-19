@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 
 services:
   frontend:
@@ -9,3 +9,7 @@ services:
     - "8080:8080"
   backend:
     image: ahmadhamid/cookie-backend
+    environment:
+      REDIS_DNS: database
+  database:
+    image: redis
