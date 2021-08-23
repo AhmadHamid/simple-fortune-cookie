@@ -1,4 +1,8 @@
 FROM golang:1.17.0-alpine as builder
 COPY . /go/src
 RUN cd /go/src && go mod tidy && go build
-ENTRYPOINT ["/go/src/backend"]
+
+
+FROM alpine:latest
+COPY --from=builder /go/src/backend /
+ENTRYPOINT ["/backend"]
